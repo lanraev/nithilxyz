@@ -6,43 +6,63 @@ import Footer from '../components/Footer.astro';
 
 <Layout 
   title="About - Nithil R (Huxley)"
-  description="About Nithil R - physics student, generalist, and explorer of interesting problems"
+  description="About page for Nithil R: physics student, generalist, and explorer of the bleeding edge"
 >
   <Header />
   
   <main class="main-content">
     <div class="container">
-      <article class="about-content">
-        <h1 class="page-title">about</h1>
-        
-        <div class="content-body">
-          <p><strong>Nithil R (Huxley)</strong></p>
+      <article class="about-article">
+
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1 class="hero-title">Nithil R (Huxley)</h1>
+          <p class="hero-subtitle">Physics student &#38; generalist exploring the bleeding edge</p>
+        </section>
+
+        <!-- Introduction -->
+        <section class="introduction">
           <p>I'm a physics student.<br>I'm interested in most things.</p>
+        </section>
 
-          <p>In a past life, I was a numismatist, stockpicker, runner, pyromaniac, cartographer and cryptographer.</p>
+        <!-- Past Life -->
+        <section class="past-life">
+          <h2>Before</h2>
+          <p>In a past life, I was a numismatist, stockpicker, runner, pyromaniac, cartographer, and cryptographer.</p>
+        </section>
 
+        <!-- Current Work -->
+        <section class="today">
+          <h2>Today</h2>
           <p>Today, I work on interesting problems in a wide variety of fields. If your work lies on the bleeding edge of human endeavour, I'm probably interested in you and what you have to say.</p>
+        </section>
 
-          <p>Here's what's currently keeping me up at night:</p>
+        <!-- Late-Night Thoughts -->
+        <section class="night">
+          <h2>What keeps me up</h2>
           <ul>
             <li>External frameworks that maximize accountability and transparency in systems of governance designed to minimize it</li>
             <li>CTOL/HTOL autonomization</li>
-            <li>What the framing, modelling, and discovery of physical laws might look like in the context of autonomous, evolutionarily distinct, genetically unweighted synthetic intelligences.</li>
+            <li>Framing, modelling, and discovery of physical laws in the context of autonomous, evolutionarily distinct, genetically unweighted synthetic intelligences</li>
           </ul>
+        </section>
 
-          <p>If this is interesting to you, reach me here: <a href="mailto:hi@nithil.xyz">hi@nithil.xyz</a></p>
-
-          <h2>contact</h2>
+        <!-- Contact -->
+        <section class="contact-section">
+          <h2>Let's connect</h2>
           <ul class="contact-list">
             <li>Email: <a href="mailto:hi@nithil.xyz">hi@nithil.xyz</a></li>
-            <li>Twitter: Huggslie</li>
+            <li>Twitter: <a href="https://twitter.com/huggslie" target="_blank" rel="noopener">@Huggslie</a></li>
             <li>Discord: lanraev</li>
           </ul>
+        </section>
 
+        <!-- Footnote -->
+        <section class="footnote">
           <p>This site is a public-facing repository of my thoughts and works, and a window into what I'm currently interested in.</p>
+          <p>To know more about me (in a more personal light), go <a href="/about/">here</a>.</p>
+        </section>
 
-          <p>To know more about me (in a more personal light), go <a href="https://www.nithil.xyz/about/">here</a>.</p>
-        </div>
       </article>
     </div>
   </main>
@@ -51,82 +71,55 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  .main-content {
-    flex: 1;
+  .hero {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
   }
-  
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: var(--space-2xl) var(--space-lg);
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin: 0;
   }
-  
-  .about-content {
-    max-width: 100%;
-  }
-  
-  .page-title {
-    font-family: var(--font-family-mono);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin: 0 0 var(--space-2xl);
-    text-transform: lowercase;
-  }
-  
-  .content-body {
-    line-height: 1.6;
-  }
-  
-  .content-body p {
-    margin: 0 0 var(--space-lg);
+  .hero-subtitle {
+    font-size: 1.125rem;
     color: var(--color-text-secondary);
+    margin-top: var(--space-sm);
   }
-  
-  .content-body h2 {
+  .about-article h2 {
     font-family: var(--font-family-mono);
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-text);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-sm);
     margin: var(--space-2xl) 0 var(--space-lg);
-    text-transform: lowercase;
   }
-  
-  .content-body ul {
+  .about-article p,
+  .about-article ul {
     margin: 0 0 var(--space-lg);
-    padding-left: var(--space-xl);
     color: var(--color-text-secondary);
+    line-height: 1.7;
   }
-  
-  .content-body li {
-    margin-bottom: var(--space-sm);
-  }
-  
-  .content-body a {
-    color: var(--color-accent);
-    text-decoration: none;
-  }
-  
-  .content-body a:hover {
-    color: var(--color-accent-hover);
-    text-decoration: underline;
-  }
-  
-  .content-body strong {
-    color: var(--color-text);
-    font-weight: 600;
-  }
-  
   .contact-list {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
   }
-  
   .contact-list li {
     margin-bottom: var(--space-md);
   }
-  
+  .contact-list a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .contact-list a:hover {
+    text-decoration: underline;
+  }
   @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
     .container {
       padding: var(--space-xl) var(--space-md);
     }
