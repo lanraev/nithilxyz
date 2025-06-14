@@ -2,108 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ContentCard from '../components/ContentCard.astro';
-
-// Featured content - in a real site, this might come from a CMS or markdown files
-const featuredWriting = [
-  {
-    title: "On the Nature of Experimental Interfaces",
-    date: "2024-01-15",
-    description: "Exploring how interactive systems can augment human thinking and creativity through thoughtful design.",
-    href: "/writing/experimental-interfaces",
-    tags: ["interface design", "creativity"]
-  },
-  {
-    title: "Building Tools for Thought",
-    date: "2024-01-08",
-    description: "Reflections on creating software that extends our cognitive capabilities rather than merely automating tasks.",
-    href: "/writing/tools-for-thought",
-    tags: ["cognition", "software"]
-  }
-];
-
-const featuredProjects = [
-  {
-    title: "Interactive Reading Environment",
-    date: "2024-01-20",
-    description: "A web-based tool for deep reading with annotation, linking, and spaced repetition features.",
-    href: "/projects/reading-environment",
-    tags: ["web", "education"]
-  },
-  {
-    title: "Dynamic Notebooks",
-    date: "2023-12-15",
-    description: "Executable documents that blend narrative with live computation and visualization.",
-    href: "/projects/dynamic-notebooks",
-    tags: ["computation", "visualization"]
-  }
-];
 ---
 
 <Layout 
-  title="Your Name - Personal Website"
-  description="Thoughts, projects, and explorations in computing, design, and human-computer interaction"
+  title="About - Nithil R (Huxley)"
+  description="About Nithil R - physics student, generalist, and explorer of interesting problems"
 >
   <Header />
   
   <main class="main-content">
     <div class="container">
-      <section class="intro">
-        <h1 class="page-title">YOUR NAME</h1>
-        <p class="subtitle">opposition to remoteness in all forms</p>
-        <div class="intro-text">
-          <p>I've dedicated my life to creating a <strong>humane dynamic medium</strong>.</p>
-          <p>I am (now and forever) making <strong>Dynamicland</strong>.</p>
+      <article class="about-content">
+        <h1 class="page-title">about</h1>
+        
+        <div class="content-body">
+          <p><strong>Nithil R (Huxley)</strong></p>
+          <p>I'm a physics student.<br>I'm interested in most things.</p>
+
+          <p>In a past life, I was a numismatist, stockpicker, runner, pyromaniac, cartographer and cryptographer.</p>
+
+          <p>Today, I work on interesting problems in a wide variety of fields. If your work lies on the bleeding edge of human endeavour, I'm probably interested in you and what you have to say.</p>
+
+          <p>Here's what's currently keeping me up at night:</p>
+          <ul>
+            <li>External frameworks that maximize accountability and transparency in systems of governance designed to minimize it</li>
+            <li>CTOL/HTOL autonomization</li>
+            <li>What the framing, modelling, and discovery of physical laws might look like in the context of autonomous, evolutionarily distinct, genetically unweighted synthetic intelligences.</li>
+          </ul>
+
+          <p>If this is interesting to you, reach me here: <a href="mailto:hi@nithil.xyz">hi@nithil.xyz</a></p>
+
+          <h2>contact</h2>
+          <ul class="contact-list">
+            <li>Email: <a href="mailto:hi@nithil.xyz">hi@nithil.xyz</a></li>
+            <li>Twitter: Huggslie</li>
+            <li>Discord: lanraev</li>
+          </ul>
+
+          <p>This site is a public-facing repository of my thoughts and works, and a window into what I'm currently interested in.</p>
+
+          <p>To know more about me (in a more personal light), go <a href="https://www.nithil.xyz/about/">here</a>.</p>
         </div>
-      </section>
-      
-      <section class="timeline-section">
-        <h2 class="section-title">Real-world dynamic medium.</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="timeline-year">2024</span>
-            <div class="timeline-content">
-              <a href="/writing/experimental-interfaces" class="timeline-link">On the Nature of Experimental Interfaces</a>
-              <span class="timeline-meta">: exploring interactive systems</span>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <span class="timeline-year">2023</span>
-            <div class="timeline-content">
-              <a href="/projects/dynamic-notebooks" class="timeline-link">Dynamic Notebooks</a>
-              <span class="timeline-meta">: executable documents</span>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <span class="timeline-year">2022</span>
-            <div class="timeline-content">
-              <a href="/writing/tools-for-thought" class="timeline-link">Building Tools for Thought</a>
-              <span class="timeline-meta">: cognitive augmentation</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <section class="timeline-section">
-        <h2 class="section-title">Toward a dynamic medium.</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="timeline-year">2021</span>
-            <div class="timeline-content">
-              <a href="/projects/reading-environment" class="timeline-link">Interactive Reading Environment</a>
-              <span class="timeline-meta"> & </span>
-              <a href="/notes" class="timeline-link">notes</a>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <span class="timeline-year">2020</span>
-            <div class="timeline-content">
-              <a href="/writing" class="timeline-link">Various Essays</a>
-              <span class="timeline-meta">: on design and computation</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      </article>
     </div>
   </main>
   
@@ -113,15 +53,6 @@ const featuredProjects = [
 <style>
   .main-content {
     flex: 1;
-    position: relative;
-    z-index: 1;
-    background-color: rgba(26, 26, 26, 0.85);
-  }
-  
-  @media (prefers-color-scheme: light) {
-    .main-content {
-      background-color: rgba(255, 255, 255, 0.85);
-    }
   }
   
   .container {
@@ -130,8 +61,8 @@ const featuredProjects = [
     padding: var(--space-2xl) var(--space-lg);
   }
   
-  .intro {
-    margin-bottom: var(--space-2xl);
+  .about-content {
+    max-width: 100%;
   }
   
   .page-title {
@@ -139,99 +70,65 @@ const featuredProjects = [
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-text);
-    margin: 0 0 var(--space-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    margin: 0 0 var(--space-2xl);
+    text-transform: lowercase;
   }
   
-  .subtitle {
-    font-family: var(--font-family-mono);
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    margin: 0 0 var(--space-xl);
-    font-style: italic;
-  }
-  
-  .intro-text {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
+  .content-body {
     line-height: 1.6;
   }
   
-  .intro-text p {
-    margin: 0 0 var(--space-md);
+  .content-body p {
+    margin: 0 0 var(--space-lg);
+    color: var(--color-text-secondary);
   }
   
-  .intro-text strong {
-    color: var(--color-text);
-    font-weight: 600;
-  }
-  
-  .timeline-section {
-    margin-bottom: var(--space-2xl);
-  }
-  
-  .section-title {
+  .content-body h2 {
     font-family: var(--font-family-mono);
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-text);
+    margin: var(--space-2xl) 0 var(--space-lg);
+    text-transform: lowercase;
+  }
+  
+  .content-body ul {
     margin: 0 0 var(--space-lg);
+    padding-left: var(--space-xl);
+    color: var(--color-text-secondary);
   }
   
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+  .content-body li {
+    margin-bottom: var(--space-sm);
   }
   
-  .timeline-item {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-lg);
-  }
-  
-  .timeline-year {
-    font-family: var(--font-family-mono);
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-    min-width: 3rem;
-    flex-shrink: 0;
-  }
-  
-  .timeline-content {
-    flex: 1;
-    line-height: 1.5;
-  }
-  
-  .timeline-link {
+  .content-body a {
     color: var(--color-accent);
     text-decoration: none;
-    font-weight: 500;
   }
   
-  .timeline-link:hover {
+  .content-body a:hover {
     color: var(--color-accent-hover);
     text-decoration: underline;
   }
   
-  .timeline-meta {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
+  .content-body strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+  
+  .contact-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .contact-list li {
+    margin-bottom: var(--space-md);
   }
   
   @media (max-width: 768px) {
     .container {
       padding: var(--space-xl) var(--space-md);
-    }
-    
-    .timeline-item {
-      flex-direction: column;
-      gap: var(--space-xs);
-    }
-    
-    .timeline-year {
-      min-width: auto;
     }
   }
 </style>
