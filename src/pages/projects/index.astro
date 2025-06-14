@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContentCard from '../../components/ContentCard.astro';
+
+const projects = [
+  {
+    title: "Interactive Reading Environment",
+    date: "2024-01-20",
+    description: "A web-based tool for deep reading with annotation, linking, and spaced repetition features. Built with modern web technologies to create a distraction-free reading experience.",
+    href: "/projects/reading-environment",
+    tags: ["web", "education", "React", "TypeScript"]
+  },
+  {
+    title: "Dynamic Notebooks",
+    date: "2023-12-15",
+    description: "Executable documents that blend narrative with live computation and visualization. Inspired by Jupyter but designed for exploratory thinking.",
+    href: "/projects/dynamic-notebooks",
+    tags: ["computation", "visualization", "Python", "JavaScript"]
+  },
+  {
+    title: "Concept Mapping Tool",
+    date: "2023-11-30",
+    description: "A visual tool for creating and exploring concept maps, designed to help with knowledge organization and discovery of connections between ideas.",
+    href: "/projects/concept-mapping",
+    tags: ["visualization", "knowledge management", "D3.js"]
+  },
+  {
+    title: "Minimal Static Site Generator",
+    date: "2023-10-15",
+    description: "A simple, opinionated static site generator focused on content and performance. Built to power sites like this one.",
+    href: "/projects/static-site-generator",
+    tags: ["web", "performance", "Node.js", "minimalism"]
+  }
+];
+---
+
+<Layout 
+  title="Projects - Your Name"
+  description="Software projects and experiments in human-computer interaction"
+>
+  <Header />
+  
+  <main class="main-content">
+    <div class="container">
+      <section class="page-header">
+        <h1 class="page-title">projects</h1>
+        <p class="page-description">
+          Software experiments and tools I've built, mostly focused on augmenting human thinking and creativity. Many are open source and available on GitHub. Some are finished, others are perpetual works in progress.
+        </p>
+      </section>
+      
+      <section class="projects-list">
+        <div class="content-list">
+          {projects.map(project => (
+            <ContentCard
+              title={project.title}
+              date={project.date}
+              description={project.description}
+              href={project.href}
+              tags={project.tags}
+              type="project"
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .main-content {
+    flex: 1;
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-lg);
+  }
+  
+  .page-header {
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .page-title {
+    font-family: var(--font-family-mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg);
+    text-transform: lowercase;
+  }
+  
+  .page-description {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .content-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: var(--space-xl) var(--space-md);
+    }
+  }
+</style>

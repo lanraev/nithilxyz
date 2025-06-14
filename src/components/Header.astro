@@ -1,0 +1,118 @@
+---
+import { Astro } from 'astro';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-main">
+      <a href="/" class="site-title">YOUR NAME</a>
+      <ul class="nav-links">
+        <li><a href="/writing" class={currentPath.startsWith('/writing') ? 'active' : ''}>writing</a></li>
+        <li><a href="/projects" class={currentPath.startsWith('/projects') ? 'active' : ''}>projects</a></li>
+        <li><a href="/notes" class={currentPath.startsWith('/notes') ? 'active' : ''}>notes</a></li>
+        <li><a href="/about" class={currentPath === '/about' ? 'active' : ''}>about</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 10;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    .site-header {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+  
+  .nav-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg) 0;
+  }
+  
+  .site-title {
+    font-family: var(--font-family-mono);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+  }
+  
+  .site-title:hover {
+    color: var(--color-accent);
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--space-xl);
+  }
+  
+  .nav-links a {
+    font-family: var(--font-family-mono);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: var(--space-xs) 0;
+    position: relative;
+    transition: var(--transition);
+    font-size: 0.9rem;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--color-text);
+  }
+  
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-accent);
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 var(--space-md);
+    }
+    
+    .nav-main {
+      flex-direction: column;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+    }
+    
+    .nav-links {
+      gap: var(--space-lg);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav-links {
+      gap: var(--space-md);
+    }
+  }
+</style>

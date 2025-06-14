@@ -1,0 +1,100 @@
+---
+export interface Props {
+  title: string;
+  date?: string;
+  description?: string;
+  href: string;
+  type?: 'writing' | 'project' | 'note';
+  tags?: string[];
+}
+
+const { title, date, description, href, type = 'writing', tags = [] } = Astro.props;
+---
+
+<article class="content-card">
+  <a href={href} class="card-link">
+    <header class="card-header">
+      <div class="card-meta">
+        {date && <time class="card-date" datetime={date}>{new Date(date).getFullYear()}</time>}
+      </div>
+      <h3 class="card-title">{title}</h3>
+    </header>
+    {description && <p class="card-description">{description}</p>}
+    {tags.length > 0 && (
+      <div class="card-tags">
+        {tags.map(tag => <span class="tag">{tag}</span>)}
+      </div>
+    )}
+  </a>
+</article>
+
+<style>
+  .content-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-background);
+    transition: var(--transition);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .content-card:hover {
+    border-color: var(--color-border-hover);
+  }
+  
+  .card-link {
+    display: block;
+    padding: var(--space-lg);
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .card-header {
+    margin-bottom: var(--space-md);
+  }
+  
+  .card-meta {
+    margin-bottom: var(--space-xs);
+  }
+  
+  .card-date {
+    font-family: var(--font-family-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+  
+  .card-title {
+    font-family: var(--font-family-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-accent);
+    line-height: 1.4;
+  }
+  
+  .card-description {
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-md);
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+  
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  
+  .tag {
+    font-family: var(--font-family-mono);
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    background: var(--color-background-secondary);
+    padding: 2px 6px;
+    border: 1px solid var(--color-border);
+  }
+  
+  @media (max-width: 768px) {
+    .card-link {
+      padding: var(--space-md);
+    }
+  }
+</style>

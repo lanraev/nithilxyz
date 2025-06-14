@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContentCard from '../../components/ContentCard.astro';
+
+// In a real site, this would be dynamic data from markdown files or a CMS
+const allWriting = [
+  {
+    title: "On the Nature of Experimental Interfaces",
+    date: "2024-01-15",
+    description: "Exploring how interactive systems can augment human thinking and creativity through thoughtful design.",
+    href: "/writing/experimental-interfaces",
+    tags: ["interface design", "creativity", "HCI"]
+  },
+  {
+    title: "Building Tools for Thought",
+    date: "2024-01-08",
+    description: "Reflections on creating software that extends our cognitive capabilities rather than merely automating tasks.",
+    href: "/writing/tools-for-thought",
+    tags: ["cognition", "software", "philosophy"]
+  },
+  {
+    title: "The Craft of Programming",
+    date: "2023-12-20",
+    description: "Programming as a medium for thinking—not just building, but exploring ideas through code.",
+    href: "/writing/craft-of-programming",
+    tags: ["programming", "craft", "thinking"]
+  },
+  {
+    title: "Designing for Understanding",
+    date: "2023-12-05",
+    description: "How visual and interactive design can make complex ideas more accessible and engaging.",
+    href: "/writing/designing-for-understanding",
+    tags: ["design", "education", "visualization"]
+  }
+];
+---
+
+<Layout 
+  title="Writing - Your Name"
+  description="Essays and thoughts on computing, design, and human-computer interaction"
+>
+  <Header />
+  
+  <main class="main-content">
+    <div class="container">
+      <section class="page-header">
+        <h1 class="page-title">writing</h1>
+        <p class="page-description">
+          Essays and thoughts on computing, design, and the ways technology can augment human thinking. Most pieces are works in progress—living documents that evolve with my understanding.
+        </p>
+      </section>
+      
+      <section class="writing-list">
+        <div class="content-list">
+          {allWriting.map(post => (
+            <ContentCard
+              title={post.title}
+              date={post.date}
+              description={post.description}
+              href={post.href}
+              tags={post.tags}
+              type="writing"
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .main-content {
+    flex: 1;
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-lg);
+  }
+  
+  .page-header {
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .page-title {
+    font-family: var(--font-family-mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg);
+    text-transform: lowercase;
+  }
+  
+  .page-description {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .content-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: var(--space-xl) var(--space-md);
+    }
+  }
+</style>

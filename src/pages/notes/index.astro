@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContentCard from '../../components/ContentCard.astro';
+
+const notes = [
+  {
+    title: "On Information Density",
+    date: "2024-01-22",
+    description: "Brief thoughts on the relationship between information density and comprehension in interface design.",
+    href: "/notes/information-density",
+    tags: ["design", "cognition"]
+  },
+  {
+    title: "The Poetry of Code",
+    date: "2024-01-18",
+    description: "Programming as a form of creative expression—the aesthetics of elegant solutions.",
+    href: "/notes/poetry-of-code",
+    tags: ["programming", "aesthetics"]
+  },
+  {
+    title: "Learning in Public",
+    date: "2024-01-12",
+    description: "Why sharing work-in-progress and unfinished thoughts can be more valuable than polished presentations.",
+    href: "/notes/learning-in-public",
+    tags: ["learning", "process"]
+  },
+  {
+    title: "Affordances and Constraints",
+    date: "2024-01-05",
+    description: "How the design of tools shapes the kinds of thinking they enable or constrain.",
+    href: "/notes/affordances-constraints",
+    tags: ["design", "tools", "cognition"]
+  }
+];
+---
+
+<Layout 
+  title="Notes - Your Name"
+  description="Short thoughts and observations on design, technology, and creativity"
+>
+  <Header />
+  
+  <main class="main-content">
+    <div class="container">
+      <section class="page-header">
+        <h1 class="page-title">notes</h1>
+        <p class="page-description">
+          Short thoughts, observations, and fragments. Less formal than essays, more developed than tweets. A place for ideas that don't yet deserve their own essay but are worth sharing.
+        </p>
+      </section>
+      
+      <section class="notes-list">
+        <div class="content-list">
+          {notes.map(note => (
+            <ContentCard
+              title={note.title}
+              date={note.date}
+              description={note.description}
+              href={note.href}
+              tags={note.tags}
+              type="note"
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .main-content {
+    flex: 1;
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-lg);
+  }
+  
+  .page-header {
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .page-title {
+    font-family: var(--font-family-mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg);
+    text-transform: lowercase;
+  }
+  
+  .page-description {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .content-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: var(--space-xl) var(--space-md);
+    }
+  }
+</style>

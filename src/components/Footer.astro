@@ -1,0 +1,91 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <p class="footer-text">
+        © {new Date().getFullYear()} Your Name. 
+        <a href="/rss.xml" class="rss-link">rss</a>
+      </p>
+      <div class="footer-links">
+        <a href="mailto:your.email@example.com">email</a>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener">github</a>
+        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener">twitter</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--color-border);
+    background-color: rgba(42, 42, 42, 0.95);
+    backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 10;
+  }
+  
+  @media (prefers-color-scheme: light) {
+    .site-footer {
+      background-color: rgba(248, 248, 248, 0.95);
+    }
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg) 0;
+  }
+  
+  .footer-text {
+    font-family: var(--font-family-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  
+  .rss-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-left: var(--space-sm);
+  }
+  
+  .rss-link:hover {
+    color: var(--color-accent-hover);
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: var(--space-lg);
+  }
+  
+  .footer-links a {
+    font-family: var(--font-family-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 var(--space-md);
+    }
+    
+    .footer-content {
+      flex-direction: column;
+      gap: var(--space-sm);
+      text-align: center;
+    }
+  }
+</style>
