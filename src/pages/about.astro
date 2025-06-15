@@ -2,133 +2,64 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import asciiArt from '../ascii-art.txt?raw';
 ---
 
-<Layout 
-  title="About - Nithil R (Huxley)"
-  description="About Nithil R - physics student, generalist, and explorer of interesting problems"
->
+<Layout title="About – Nithil R" description="About page for Nithil R">
   <Header />
-  
-  <main class="main-content">
-    <div class="container">
-      <article class="about-content">
-        <!-- Page Title -->
-        <h1 class="page-title">Nithil R</h1>
-        
-        <div class="content-body">
-          <p>I'm a physics student.<br>I'm interested in most things.</p>
 
-          <p>In a past life, I was a numismatist, stockpicker, runner, pyromaniac, cartographer and cryptographer.</p>
-
-          <p>Today, I work on interesting problems in a wide variety of fields. If your work lies on the bleeding edge of human endeavour, I'm probably interested in you and what you have to say.</p>
-
-          <p><strong>Here's what's currently keeping me up at night:</strong></p>
-          <ul>
-            <li>External frameworks that maximize accountability and transparency in systems of governance designed to minimize it</li>
-            <li>CTOL/HTOL autonomization</li>
-            <li>What the framing, modelling, and discovery of physical laws might look like in the context of autonomous, evolutionarily distinct, genetically unweighted synthetic intelligences.</li>
-          </ul>
-
-          <p>If this is interesting to you, reach me here: <a href="mailto:hi@nithil.xyz">hi@nithil.xyz</a></p>
-
-          <h2>contact</h2>
-          <ul class="contact-list">
-            <li>Email: <a href="mailto:hi@nithil.xyz">hi@nithil.xyz</a></li>
-            <li>Twitter: Huggslie</li>
-            <li>Discord: lanraev</li>
-          </ul>
-
-          <p>This site is a public-facing repository of my thoughts and works, and a window into what I'm currently interested in.</p>
-
-          <p>To know more about me (in a more personal light), go <a href="https://www.nithil.xyz/about/">here</a>.</p>
-        </div>
-      </article>
+  <div class="ascii-container">
+    <pre class="ascii-art">{asciiArt}</pre>
+    <div class="ascii-links">
+      <a href="/avocations">Avocations</a>
+      <a href="/im-scared">I’m Scared</a>
+      <a href="/neurodivergence">Neurodivergence</a>
     </div>
-  </main>
-  
+  </div>
+
   <Footer />
 </Layout>
 
 <style>
-  .main-content {
-    flex: 1;
-  }
-  
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: var(--space-2xl) var(--space-lg);
-  }
-  
-  .about-content {
-    max-width: 100%;
-  }
-  
-  .page-title {
-    font-family: var(--font-family-mono);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin: 0 0 var(--space-2xl);
-    text-transform: none;
-  }
-  
-  .content-body {
-    line-height: 1.6;
-  }
-  
-  .content-body p {
-    margin: 0 0 var(--space-lg);
-    color: var(--color-text-secondary);
-  }
-  
-  .content-body h2 {
-    font-family: var(--font-family-mono);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin: var(--space-2xl) 0 var(--space-lg);
-    text-transform: lowercase;
-  }
-  
-  .content-body ul {
-    margin: 0 0 var(--space-lg);
-    padding-left: var(--space-xl);
-    color: var(--color-text-secondary);
-  }
-  
-  .content-body li {
-    margin-bottom: var(--space-sm);
-  }
-  
-  .content-body a {
-    color: var(--color-accent);
-    text-decoration: none;
-  }
-  
-  .content-body a:hover {
-    color: var(--color-accent-hover);
-    text-decoration: underline;
-  }
-  
-  .content-body strong {
-    color: var(--color-text);
-    font-weight: 600;
-  }
-  
-  .contact-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .contact-list li {
-    margin-bottom: var(--space-md);
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: var(--space-xl) var(--space-md);
-    }
-  }
+.ascii-container {
+  position: relative;
+  overflow-x: auto;
+}
+.ascii-art {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  font-family: monospace;
+  font-size: 6px;   /* ← tweak until art fits */
+  line-height: 1;
+}
+.ascii-links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  pointer-events: none;
+}
+.ascii-links a {
+  pointer-events: auto;
+  font-family: var(--font-family-sans);
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: var(--color-text);
+  text-decoration: none;
+  text-shadow: 1px 1px rgba(255,255,255,0.8);
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+}
+.ascii-links a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .ascii-art { font-size: 5px; }
+  .ascii-links a { font-size: 1.25rem; }
+}
 </style>
