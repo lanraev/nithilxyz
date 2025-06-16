@@ -129,18 +129,28 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
+:root {
+  /* Set this to the number of characters per widest line in your ASCII art */
+  --ascii-cols: 200;
+}
 .ascii-container {
   position: relative;
-  overflow-x: auto;
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .ascii-art {
-  display: inline-block;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   white-space: pre;
   font-family: monospace;
-  font-size: 6px; /* adjust as needed */
+  /* Dynamically size font so art fills viewport width but never smaller than 4px or larger than 10px */
+  font-size: clamp(4px, calc(100vw / var(--ascii-cols)), 10px);
   line-height: 1;
+  display: block;
 }
 .ascii-links {
   position: absolute;
@@ -155,42 +165,26 @@ import Footer from '../components/Footer.astro';
   top: 0;
   pointer-events: auto;
   font-family: 'Bauhaus 93', sans-serif;
-  font-size: 1.75rem;
+  /* Responsive font-size using clamp */
+  font-size: clamp(1rem, 2vw, 2rem);
   font-weight: bold;
   color: var(--color-text);
   text-decoration: none;
   text-shadow: 1px 1px rgba(255,255,255,0.8);
   white-space: nowrap;
 }
-/* Position links evenly */
+/* Position links at 20%, 50%, 80% of container width */
 .ascii-links a:nth-child(1) {
-  left: 20%;
-  transform: translateX(-50%);
+  left: 20%; transform: translateX(-50%);
 }
 .ascii-links a:nth-child(2) {
-  left: 50%;
-  transform: translateX(-50%);
+  left: 50%; transform: translateX(-50%);
 }
 .ascii-links a:nth-child(3) {
-  left: 80%;
-  transform: translateX(-50%);
+  left: 80%; transform: translateX(-50%);
 }
 .ascii-links a:hover {
   color: var(--color-accent);
   text-decoration: underline;
-}
-@media (max-width: 768px) {
-  .ascii-art {
-    font-size: 5px;
-  }
-  .ascii-links a {
-    font-size: 1.25rem;
-  }
-  .ascii-links a:nth-child(1) {
-    left: 15%;
-  }
-  .ascii-links a:nth-child(3) {
-    left: 85%;
-  }
 }
 </style>
