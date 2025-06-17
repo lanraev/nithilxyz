@@ -1,1 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Frontmatter: update these before publishing
+export const title = 'Motivations';
+export const description = 'My underlying motivations and philosophical drivers.';
+export const date = '2025-06-17';
+export const tags = ['motivation', 'philosophy'];
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main class="post-main">
+    <div class="container">
+      <article class="post-article">
+        <h1 class="post-title">{title}</h1>
+        <time datetime={date} class="post-date">{date}</time>
+
+        <!-- Begin post content -->
+        <section class="post-content">
+          <p>The idea of death, the fear of it, haunts the human animal like nothing else; it is a mainspring of human activity — activity designed largely to avoid the fatality of death, to overcome it by denying in some way that it is the final destiny for man.</p>
+
+          <blockquote>
+            <p>[He] cannot endure his own littleness unless he can translate it into meaningfulness on the largest possible level.</p>
+            <footer>— Ernest Becker</footer>
+          </blockquote>
+
+          <p>There are two forces that have shaped me more than any others.</p>
+
+          <p><strong>The first</strong> is a kind of existential unrest – an epistemic and ontological insecurity that first surfaced during that classic teenage existential crisis so common among inquisitive minds.</p>
+          <p>Like most, the pressing manifestations of this crisis took the form of questions too vast for me – those questions humanity has pursued for millennia, whose answers remain shrouded in inconclusivity:</p>
+          <ul>
+            <li><em>Why am I here?</em></li>
+            <li><em>What is all this?</em></li>
+            <li><em>Why does any of it matter?</em></li>
+          </ul>
+          <p>I never quite moved on. That discomfort ossified into something enduring.</p>
+
+          <p><strong>The second</strong> is a deep, almost spiritual reverence for the natural world – both its surface charm and its internal architecture. The elegance of physical law. The austerity of mathematics. The haunting precision with which the universe sustains itself.</p>
+
+          <p>My life has turned around the axis of these two forces: the wound and the beauty. I am trying, in essence, to understand enough of the universe to no longer feel at its mercy, to seek truth not as an abstract ideal, but as an act of self-defense.</p>
+
+          <p>Physics was the first tool I reached for. It remains, to me, the most principled, potent instrument for cutting through illusion.</p>
+
+          <p>My curiosity now radiates outward; to AI, cognitive science, neuroscience, economics, engineering, as converging paths to the same end: the transcendence of inherited constraint. The ability to gently bend the hardware of reality toward a more complete freedom. The power to co-author the laws of one’s own existence. To bask in the beauty and sublimity of such work is only a fortunate side effect.</p>
+
+          <p>I am not loyal to any one discipline or persona. I will be whatever the frontier demands: thinker, builder, theorist, poet. My compass is trajectory — whatever will most capably reveal structure beneath chaos and allow me to model the world better.</p>
+        </section>
+        <!-- End post content -->
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+:root {
+  --post-max-width: 720px;
+  --spacing-lg: 2rem;
+  --spacing-md: 1rem;
+  --spacing-sm: 0.5rem;
+}
+.post-main {
+  flex: 1;
+  padding: var(--spacing-lg) var(--spacing-md);
+  display: flex;
+  justify-content: center;
+}
+.post-article {
+  max-width: var(--post-max-width);
+  width: 100%;
+}
+.post-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+.post-date {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+.post-content p,
+.post-content ul {
+  line-height: 1.75;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text);
+}
+.post-content ul {
+  padding-left: 1.25rem;
+}
+.post-content li {
+  margin-bottom: var(--spacing-sm);
+}
+.post-content blockquote {
+  margin: var(--spacing-lg) var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 4px solid var(--color-accent);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+.post-content blockquote footer {
+  margin-top: var(--spacing-sm);
+  text-align: right;
+  font-size: 0.875rem;
+}
+@media (max-width: 768px) {
+  .post-main {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  .post-title {
+    font-size: 2rem;
+  }
+}
+</style>
 
