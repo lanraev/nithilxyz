@@ -1,0 +1,109 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Frontmatter: update these before publishing
+export const title = 'Neurodivergence (Personal)';
+export const description = 'Personal reflections on how neurodivergence shapes my thinking and behavior.';
+export const date = '2025-06-17';
+export const tags = ['neurodivergence', 'personal'];
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main class="post-main">
+    <div class="container">
+      <article class="post-article">
+        <h1 class="post-title">{title}</h1>
+        <time datetime={date} class="post-date">{date}</time>
+
+        <!-- Begin post content -->
+        <section class="post-content">
+          <p>Who I am, how I think, and how I behave are shaped in large part by my neurodivergence. When I was 15, I was diagnosed with severe ADHD and OCD (DSM-5-TR). The latter is largely controllable—20mg of Fluoxetine per day over many months has proven effective. However, the effects of ADHD still permeate my day-to-day.</p>
+
+          <p><em>Here's what that means for you:</em></p>
+          <ul>
+            <li><strong>I might not respond to messages and e-mails for many days</strong>, despite having noticed (and even read) them. This isn't about you—it’s because I'm extremely unmotivated in this specific context at times. However, I will spontaneously strike up a conversation with you that might last hours.</li>
+            <li><strong>If I ever seem uncharacteristically sombre and/or focused</strong>, I am likely on stimulants. I’m not sad unless I say I am. I’m not in a bad mood. I haven’t suddenly matured. I’m on Methylphenidate, which is the only stimulant available to me right now.</li>
+            <li><strong>I will be unable to hold a linear conversation with you.</strong> It’s rare that I finish telling anyone about something before it trips off a memory of something else that's also super interesting, leading to the original discussion being abandoned and a tangential topic being pursued.</li>
+            <li><strong>I will interrupt you—often.</strong> This is something I'm actively working on, and I would appreciate you stopping me in my tracks and calling me out on it.</li>
+            <li><strong>I'll frequently lose my train of thought, even mid-sentence.</strong> You’ll notice I pause at seemingly random intervals while speaking—this is me trying to recall where I was going with what I'm saying.</li>
+            <li><strong>You will also notice that I tend to throw myself headfirst into brand-new, divergent fields</strong> (unrelated to my experience, education, or training) every few months, seemingly abandoning a trajectory toward significant progress.</li>
+          </ul>
+
+          <p>The upside is that I've become a strong first-principles thinker. I do extremely well in high-intensity, fast-paced environments, and I’m adept at reasoning and making decisions with limited information.</p>
+
+          <p>I’ll update this page as I learn more about myself.</p>
+        </section>
+        <!-- End post content -->
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+:root {
+  --post-max-width: 720px;
+  --spacing-lg: 2rem;
+  --spacing-md: 1rem;
+  --spacing-sm: 0.5rem;
+}
+.post-main {
+  flex: 1;
+  padding: var(--spacing-lg) var(--spacing-md);
+  display: flex;
+  justify-content: center;
+}
+.post-article {
+  max-width: var(--post-max-width);
+  width: 100%;
+}
+.post-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+.post-date {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+.post-content p,
+.post-content ul {
+  line-height: 1.75;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text);
+}
+.post-content ul {
+  padding-left: 1.25rem;
+}
+.post-content li {
+  margin-bottom: var(--spacing-sm);
+}
+.post-content strong {
+  color: var(--color-text);
+}
+.post-content a {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent);
+  transition: border-color 0.2s;
+}
+.post-content a:hover {
+  border-color: var(--color-accent-hover);
+}
+@media (max-width: 768px) {
+  .post-main {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  .post-title {
+    font-size: 2rem;
+  }
+}
+</style>
