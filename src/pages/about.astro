@@ -1,14 +1,50 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContentCard from '../../components/ContentCard.astro';
+
+const allWriting = [
+  {
+    title: "Into the Rabbit Hole",
+    date: "sometime in 2025",
+    description: "A guide for people from all backgrounds who are inspired by and want to learn physics, but don't know where to start, what to learn, what to read, and how to structure their studies.",
+    href: "/writing/fundamentalphysicsguide",
+    tags: ["physics", "autodidactism", "guides"]
+  },
+  {
+    title: "The Genome is Not a Democracy",
+    date: "sometime in 2025",
+    description: "The sociological effects of Genetic Screening and Editing as marketized services",
+    href: "/writing/thesociologyofgenetics&e",
+    tags: ["biotech", "sociology", "philosophy"]
+  },
+  {
+    title: "Before the Paradigm",
+    date: "sometime in 2025",
+    description: "Framing, Physics, the loss of Human Epistemic Centrality, the epistemic trajectories of Non-Human Intelligence, and reckoning with their Ontological ascent",
+    href: "/writing/thefutureofphysicsresearchiloasi",
+    tags: ["physics", "ASI", "philosophy"]
+  },
+  {
+    title: "Placeholder",
+    date: "sometime by 2037",
+    description: "A banger post that critically examines/ reimagines/ speculates on [cutting edge of human endeavour]",
+    href: "/writing/surefirebanger",
+    tags: ["banger", "banger", "banger"]
+  }
+];
 ---
 
-<Layout title="About — Nithil R" description="About page for Nithil R">
+<Layout 
+  title="Writing — Nithil R"
+  description="Essays and thoughts on computing, design, and the ways technology can augment human thinking"
+>
   <Header />
 
-  <div class="ascii-container">
-    <pre class="ascii-art">
+  <!-- 1) FULL-PAGE FIXED ASCII BACKGROUND -->
+  <div class="ascii-wrapper">
+    <pre class="ascii-bg">
 ##################***#############################################################=                   .... .............                      .:+**+++++===#%@@@@@@@@@@@@@%%%%%######*--=====+++#@#*++++++++++++++++++++++++++++++++*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*------===+**+==============------------====+++***++=--======+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ##################++##############################################################=               ..:.. ..:+#= .-*.  ...............          .:*#%%**++-+%@@@@@@@@@@@@@@@@@@@@%#####%%+==+++++*%@*+++++*+==+=======+*+++*+=======++*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*-=======+#%#******++====++++++++++++++++***#####*#####*+====+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 ##################***###############*######*#######*##############################=                .:. ..+%%%+.:*%=  -+-   .-.  .-....:.....  .:*@@@%##*#%@@@@@@@@@%%%%%%%%@@@@#*##%%%%%*=+++=*#%%*+++*+*++=+======++*+=============*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#======+*#%**+=-==+**++***+++=+++++**####%####%##**###*++++==+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -118,73 +154,118 @@ import Footer from '../components/Footer.astro';
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%=##***#*#@@@#+*#%%--===---===#%%@%###=++#+++==+++++*=*#+:#*#%%@@%%@@@%#%%@%%%%%@@%##**++*%%%%%@@@@%*##@@@@@@@@@@@@@@@@@@@@@@@+*@@@@@@@@@@@@@@@@@@@@@@@@@-.       .-:.:.           .::.                      .:.             ...                       .:.   :=+**####%#%%#*%#%%%@@#*###%%%%%%%@@%#%%@%##%#+@@@@@@@%%%%%#%@@@@@@%%@%%%%%%%
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%=@@@@@@@@@@%#+*%%%-:-*+##**#%*%###+*#=*%##@#+=++*##*+#%#:#@%@%%%%%@@@@@@@%%%%%@@@@@@@%%%%@@@@@@@%%#*##%@@@@@@@@@@@@@@@@@@@@@@%**@@@@@@@@@@@@@@@@@@@@@@@@=.      .....:              .-:.                  ..:.               .::..                 .:::.    :--=+=++++*+**+****#**+=*###*+++++**##*===--+*#******+=====++=======-::::::-=
     </pre>
-    <div class="ascii-links">
-      <a href="/avocations">Avocations</a>
-      <a href="https://www.nithil.xyz/notes/motivations/">I’m Scared</a>
-      <a href="https://www.nithil.xyz/notes/personalneurodivergence/">Neurodivergence</a>
-    </div>
+
+    <!-- 2) YOUR PAGE CONTENT, RAISED ABOVE THE ART -->
+    <main class="main-content">
+      <div class="container">
+        <section class="page-header">
+          <h1 class="page-title">writing</h1>
+          <p class="page-description">
+            Essays and thoughts on computing, design, and the ways technology can augment human thinking. Most pieces are works in progress—living documents that evolve with my understanding.
+          </p>
+        </section>
+        
+        <section class="writing-list">
+          <div class="content-list">
+            {allWriting.map(post => (
+              <ContentCard
+                class="raised"
+                title={post.title}
+                date={post.date}
+                description={post.description}
+                href={post.href}
+                tags={post.tags}
+                type="writing"
+              />
+            ))}
+          </div>
+        </section>
+      </div>
+    </main>
   </div>
 
   <Footer />
 </Layout>
 
 <style>
-:root {
-  /* Set this to the number of characters per widest line in your ASCII art */
-  --ascii-cols: 200;
-}
-.ascii-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ascii-art {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  font-family: monospace;
-  /* Dynamically size font so art fills viewport width but never smaller than 4px or larger than 10px */
-  font-size: clamp(4px, calc(100vw / var(--ascii-cols)), 10px);
-  line-height: 1;
-  display: block;
-}
-.ascii-links {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-.ascii-links a {
-  position: absolute;
-  top: 0;
-  pointer-events: auto;
-  font-family: 'Bauhaus 93', sans-serif;
-  /* Responsive font-size using clamp */
-  font-size: clamp(1rem, 2vw, 2rem);
-  font-weight: bold;
-  color: var(--color-text);
-  text-decoration: none;
-  text-shadow: 1px 1px rgba(255,255,255,0.8);
-  white-space: nowrap;
-}
-/* Position links at 20%, 50%, 80% of container width */
-.ascii-links a:nth-child(1) {
-  left: 20%; transform: translateX(-50%);
-}
-.ascii-links a:nth-child(2) {
-  left: 50%; transform: translateX(-50%);
-}
-.ascii-links a:nth-child(3) {
-  left: 80%; transform: translateX(-50%);
-}
-.ascii-links a:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
-}
+  :root {
+    /* match this to your ASCII’s widest line */
+    --ascii-cols: 200;
+  }
+
+  /* 1) full-page fixed ASCII behind everything */
+  .ascii-wrapper {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .ascii-bg {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    font-family: monospace;
+    font-size: clamp(4px, calc(100vw / var(--ascii-cols)), 12px);
+    line-height: 1;
+    opacity: 0.5;       /* tweak to darken/lighten */
+  }
+
+  /* 2) bring your content above it */
+  .main-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+  }
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-2xl) var(--space-lg);
+    background: transparent;
+  }
+
+  /* header styling */
+  .page-header {
+    margin-bottom: var(--space-2xl);
+  }
+  .page-title {
+    font-family: var(--font-family-mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg);
+    text-transform: lowercase;
+  }
+  .page-description {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* 3) raised panel effect on each card */
+  .raised {
+    background: rgba(255,255,255,0.85);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    margin-bottom: var(--space-lg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .raised:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+  }
+
+  .content-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: var(--space-xl) var(--space-md);
+    }
+  }
 </style>
